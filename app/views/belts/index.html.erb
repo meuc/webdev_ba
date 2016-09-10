@@ -1,0 +1,3 @@
+<% @belts.each do |belt| %>
+	<%= link_to belt.color, belt_techniques_path(belt), remote: true %>
+<% end %>
