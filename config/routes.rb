@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index] do
       patch :give_user_next_belt
     end
+
+    resources :techniques, only: [:index, :new, :create, :edit, :update]
   end
 end

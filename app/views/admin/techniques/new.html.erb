@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @technique] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.association :belt, label_method: :color %>
+  <%= f.input :topic, collection: Technique.topics %>
+
+  <%= f.button :submit %>
+<% end %>

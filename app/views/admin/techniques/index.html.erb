@@ -1,0 +1,20 @@
+<div>
+  <%= link_to "Add new technique", new_admin_technique_path %>
+</div>
+
+<% @belts.each do |belt| %>
+  <div>
+    <h2>
+      <%= belt.color.titleize %>
+      (<%= belt.degree %>)
+    </h2>
+
+    <ul>
+      <% belt.techniques.each do |technique| %>
+        <li>
+          <%= technique.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

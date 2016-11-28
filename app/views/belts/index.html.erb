@@ -1,63 +1,29 @@
-
-<% @belts.each do |belt| %>
-	<%= link_to belt.color, belt_techniques_path(belt), remote: true %>
-<% end %>
-
-
 <div class="belt-tile-wrap">
-	<div class="belt-tile">
-		<a href="#" class="kup">Mu Kup - hvid</a>
-		<ul class="category-wrap">
-			<li>Hånd technikker - Sugi Sul</li>
-				<ul class="technique-wrap" style="display: none">
-					<li><a href="#">Sudo</a></li>
-					<li><a href="#">Yoksudo</a></li>
-					<li><a href="#">Sujang</a></li>
-					<li><a href="#">Samagui</a></li>
-					<li><a href="#">Chong Kwon</a></li>
-				</ul>
-			<li class="category">Spark - Jokul</li>
-			<li class="category">Fællteknikker - Nakbop</li>
-			<li class="category">Foobar - Su</li>
-			<li class="category">Foobar - Foo Bar</li>
-		</ul>
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup">9. Kup - gul</a>
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup">8. Kup - orange</a>
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">7. Kup - grøn</a>
-		<button class="right btn btn-sm btn-default">Apply</button>
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">6. Kup - blå</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">5. Kup - blå-rød</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
-	<div class="belt-tile">
-		<a href="#" class=" disabled">4. Kup - rød</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">3. Kup - rød-brun</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">2. Kup - brun</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">1. Kup - brun-sort</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
-	<div class="belt-tile">
-		<a href="#" class="kup disabled">Dan</a>
-<!--		<button class="right btn btn-sm btn-default">Apply</button> -->
-	</div>
+  <% @belts.each do |belt| %>
+    <div class="belt-tile">
+      <a href="#" class="kup <%= unless current_user.has_belt?(belt) then "disabled" end %>">
+        <%= belt.degree.titleize %> - <%= belt.color %>
+      </a>
+
+      <% Technique.topics.each do |topic, _| %>
+        <% next unless belt.techniques.where(topic: topic).exists? %>
+
+        <ul class="category-wrap">
+          <li class="category">
+            <%= topic.titleize %>
+
+            <ul class="technique-wrap" style="display: none">
+              <% belt.techniques.where(topic: topic).each do |technique| %>
+                <li>
+                  <a href="#">
+                    <%= technique.name %>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
 </div>
