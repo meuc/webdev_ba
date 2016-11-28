@@ -1,5 +1,30 @@
-<% @users.each do |user| %>
-	<div>
-		
-	</div>
+<% if @users.present? %>
+  <% @users.each do |user| %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Belt</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= user.email %></td>
+
+          <% if user.belts.present? %>
+            <td><%= user.belts.sort_by_kup.last.color %></td>
+          <% else %>
+            <td>No belts</td>
+          <% end %>
+
+          <td>
+            <%= button_to "Give next belt", admin_user_give_user_next_belt_path(user), method: :patch %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <p>There are no users yet :(</p>
 <% end %>

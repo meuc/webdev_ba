@@ -11,41 +11,41 @@
   </head>
 
   <body>
-		
+
 <div class="page-wrap">
-	
-		<div id="flash">
-			<% flash.each do |key, value| %>
-				<div class="flash <%= key %>"><%= value %></div>
-			<% end %>
-		</div>
-		
-		<div class="title float-block">
-			<a class="logo left">기술</a>
-		</div>
-		
-		
-		<div class="container">
-    	<%= yield %>
-		</div>
-		
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+    <div class="title float-block">
+      <a class="logo left">기술</a>
+    </div>
+
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
 </div>
 
-		<nav>
-			<%= image_tag("shinsonhapkido_logo.png") %>
-			Shinson Hapkido - Pensum
-			<%= link_to "Admin users", admin_users_path %>
-			<div class="right">
-				<% if signed_in? %>
-					<p>Halløj, <%= current_user.email %>
-						<%= button_to 'Sign out', sign_out_path, method: :delete, class: 'btn btn-default btn-xs' %>
-					</p>
-				<% else %>
-					<%= link_to 'Sign in', sign_in_path %> |
-					<%= link_to 'Sign up', sign_up_path %>
-				<% end %>
-		  </div>
-		</nav>	
+    <nav>
+      <%= image_tag("shinsonhapkido_logo.png") %>
+      Shinson Hapkido - Pensum
+      <%= link_to "Admin users", admin_users_path %>
+      <div class="right">
+        <% if signed_in? %>
+          <p>Halløj, <%= current_user.email %>
+            <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'btn btn-default btn-xs' %>
+          </p>
+        <% else %>
+          <%= link_to 'Sign in', sign_in_path %> |
+          <%= link_to 'Sign up', sign_up_path %>
+        <% end %>
+      </div>
+    </nav>
 
   </body>
 </html>
