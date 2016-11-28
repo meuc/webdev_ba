@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 	resources :belts, only: [] do
 		resources :techniques, only: [:index, :show]
 	end
+  
+  namespace :admin do
+    resources :users, only: [:index]
+  end
 end

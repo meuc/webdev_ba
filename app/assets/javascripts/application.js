@@ -1,6 +1,20 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+	$('.disabled').click(function(e){
+		e.preventDefault(e);
+	});
+
+	$('.belt-tile > a').click(function(){
+		$('.category-wrap').slideToggle();
+	});
+	
+	$('.category-wrap > li').click(function(){
+		$('.technique-wrap').slideToggle();
+	});
+});

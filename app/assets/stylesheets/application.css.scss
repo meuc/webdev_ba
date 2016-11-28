@@ -1,3 +1,181 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+// COLORS
+$main: #51555e;
+$contrast: #b5eaee;
+$neutral: #cfd0ca;
+
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	color: $main;
+	overflow: hidden;
+}
+
+.page-wrap {
+	height: calc(100% - 65px);
+	overflow: scroll;
+}
+
+.title {
+	padding: 1rem;
+	
+	.logo {
+		font-size: 5rem;
+	}	
+	
+	h1 {
+		margin: 0;
+	}
+}
+
+nav {
+	background: $neutral;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+//	height: 5rem;
+	padding: 1rem;
+	
+	img {
+		height: 4rem;
+	}
+	
+	div {
+//		font-size: 2rem;
+		overflow: hidden;
+		padding-top: 1rem;
+		
+		p {
+			float: left;
+			margin-right: 1rem;
+		}
+		form {
+			float: right;
+		}
+	}
+}
+
+.belt-tile-wrap {
+	width: 100%;			
+	
+	.belt-tile {
+		width: 100%;
+		margin-bottom: .5rem;
+//		display: block;
+//		overflow: hidden;
+		
+		> a {
+			width: 100%;
+			display: block;
+			padding: 1rem;
+		
+			&:not(.disabled) {
+				background: $contrast;
+				color: white;
+			
+				&:hover {
+					background: darken($contrast, 10%);
+				}
+			}
+			
+			&.disabled {
+				width: calc(100% - 80px);
+				display: inline-block;
+			}
+		}
+		
+		> ul {
+//			background: $neutral;
+			padding: 0rem;
+			list-style: none;
+			
+			display: none;
+			
+			> li {
+				padding: 1rem;
+				background: lighten($contrast, 10%);
+				margin-top: 3px;
+			}
+		}
+		
+		.technique-wrap {
+//			background: $neutral;
+			list-style: none;
+			padding: 1rem;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+						
+			li {
+				padding: 2rem;
+				
+				a {
+					color: $main;
+					font-size: 1.5rem;
+					&:hover {
+						color: darken($contrast, 10%);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// GENERALS
+
+a {
+	color: $contrast;
+	
+	&:hover {
+		color: darken($contrast, 10%);
+		text-decoration: none;
+	}
+}
+
+//form {
+//	margin-bottom: 1rem;
+//}
+
+
+
+
+
+// Helpers
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.float-block {
+	display: block;
+	overflow: hidden;
+}
+
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
