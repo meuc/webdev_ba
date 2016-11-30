@@ -1,9 +1,6 @@
-<div class="text-field form-group">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email', class: "form-control" %>
-</div>
-
-<div class="password-field form-group">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+<%= form.input :email %>
+<%= form.input :password, required: true %>
+<%= form.input :first_name %>
+<%= form.input :last_name %>
+<%= form.input :gender, collection: User.genders %>
+<%= form.input :birthdate %>
