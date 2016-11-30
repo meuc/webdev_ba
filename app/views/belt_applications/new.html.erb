@@ -1,0 +1,7 @@
+<%= simple_form_for @application do |f| %>
+  <p>
+    Send application to become <%= current_user.next_belt.color %> belt
+  </p>
+  <%= f.input :picture_proof, as: :file %>
+  <%= f.button :submit %>
+<% end %>

@@ -11,5 +11,13 @@ Rails.application.routes.draw do
     end
 
     resources :techniques, only: [:index, :new, :create, :edit, :update]
+
+    resources :belt_applications, only: [:index, :destroy] do
+      member do
+        post :approve
+      end
+    end
   end
+
+  resources :belt_applications, only: [:new, :create]
 end

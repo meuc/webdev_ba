@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910203306) do
+ActiveRecord::Schema.define(version: 20161130190629) do
+
+  create_table "belt_applications", force: :cascade do |t|
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "picture_proof_file_name"
+    t.string   "picture_proof_content_type"
+    t.integer  "picture_proof_file_size"
+    t.datetime "picture_proof_updated_at"
+    t.index ["user_id"], name: "index_belt_applications_on_user_id"
+  end
 
   create_table "belts", force: :cascade do |t|
     t.string "degree", null: false

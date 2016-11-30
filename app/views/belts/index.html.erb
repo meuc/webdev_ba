@@ -1,9 +1,14 @@
 <div class="belt-tile-wrap">
   <% @belts.each do |belt| %>
     <div class="belt-tile">
+
       <a href="#" class="kup <%= unless current_user.has_belt?(belt) then "disabled" end %>">
         <%= belt.degree.titleize %> - <%= belt.color %>
       </a>
+
+      <% if current_user.next_belt == belt && current_user.belt_application.nil? %>
+        <%= link_to "Apply", new_belt_application_path, class: "right btn btn-sm btn-default" %>
+      <% end %>
 
       <% Technique.topics.each do |topic, _| %>
         <% next unless belt.techniques.where(topic: topic).exists? %>
@@ -24,6 +29,7 @@
           </li>
         </ul>
       <% end %>
+
     </div>
   <% end %>
 </div>
