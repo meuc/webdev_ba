@@ -34,13 +34,13 @@
     <nav>
       <%= image_tag("shinsonhapkido_logo.png") %>
       <span>Shinson Hapkido - Pensum</span>
-      
-			<% if current_user.admin? %>
-				<div class="admin-nav">
-					<%= link_to "Users", admin_users_path %> | 
-      		<%= link_to "Techniques", admin_techniques_path %> | 
-      		<%= link_to "Applications", admin_techniques_path %>
-				</div>
+
+      <% if current_user.try(:admin?) %>
+        <div class="admin-nav">
+          <%= link_to "Users", admin_users_path %> |
+          <%= link_to "Techniques", admin_techniques_path %> |
+          <%= link_to "Applications", admin_techniques_path %>
+        </div>
       <% end %>
       <div class="right">
         <% if signed_in? %>
