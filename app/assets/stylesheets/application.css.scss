@@ -49,15 +49,13 @@ nav {
 	bottom: 0;
 	left: 0;
 	right: 0;
-//	height: 5rem;
 	padding: 1rem;
 	
 	img {
 		height: 4rem;
 	}
-	
+
 	div {
-//		font-size: 2rem;
 		overflow: hidden;
 		padding-top: 1rem;
 		
@@ -68,6 +66,17 @@ nav {
 		form {
 			float: right;
 		}
+	}
+	
+	a {
+		color: lighten($contrast, 10%);
+	}
+	
+	.admin-nav {
+		width: 250px;
+		position: absolute;
+		bottom: 2rem;
+		left: calc(50% - 125px);
 	}
 }
 
@@ -152,9 +161,29 @@ a {
 	}
 }
 
-//form {
-//	margin-bottom: 1rem;
-//}
+h1 {
+	color: darken($contrast, 10%);
+}
+
+
+.table-responsive {
+	margin: 0 auto;
+//	width: 90%;
+	
+	table {
+		width: 100%;
+		
+		tr {
+			td {
+				padding: 5px;
+				
+				&:last-child {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
 
 
 

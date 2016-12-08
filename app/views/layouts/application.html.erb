@@ -33,12 +33,18 @@
 
     <nav>
       <%= image_tag("shinsonhapkido_logo.png") %>
-      Shinson Hapkido - Pensum
-      <%= link_to "Admin users", admin_users_path %>
-      <%= link_to "Admin techniques", admin_techniques_path %>
+      <span>Shinson Hapkido - Pensum</span>
+      
+			<% if current_user.admin? %>
+				<div class="admin-nav">
+					<%= link_to "Users", admin_users_path %> | 
+      		<%= link_to "Techniques", admin_techniques_path %> | 
+      		<%= link_to "Applications", admin_techniques_path %>
+				</div>
+      <% end %>
       <div class="right">
         <% if signed_in? %>
-          <p>Halløj, <%= current_user.email %>
+          <p>Annyeong Haseyo, <a href="#"><%= current_user.first_name %></a>
             <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'btn btn-default btn-xs' %>
           </p>
         <% else %>

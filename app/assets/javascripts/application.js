@@ -17,4 +17,10 @@ $(function() {
   $('.category-wrap > li').click(function(){
     $(this).parents(".category-wrap").find(".technique-wrap").slideToggle();
   });
+	
+	
+  $('.technique-list span').click(function(){
+    $(this).parents(".technique-list").find(".table-responsive").slideToggle();
+		$(this).html("<i class='fa fa-chevron-down' aria-hidden='true'></i>");
+  });
 });

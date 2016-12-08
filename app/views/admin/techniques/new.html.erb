@@ -1,8 +1,17 @@
 <%= simple_form_for [:admin, @technique] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.association :belt, label_method: :color %>
-  <%= f.input :topic, collection: Technique.topics %>
-
-  <%= f.button :submit %>
+<div class="form-group">
+	<%= f.input :name %>
+</div>
+<div class="form-group">
+	<%= f.input :description %>
+</div>
+<div class="form-group">
+	<%= f.association :belt, label_method: :color %>
+</div>
+<div class="form-group">
+	<%= f.input :topic, collection: Technique.topics %>
+</div>
+<div class="form-group">
+	 <%= f.button :submit %>
+	</div>
 <% end %>

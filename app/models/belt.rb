@@ -5,17 +5,17 @@ class Belt < ApplicationRecord
   def self.sort_by_kup
     all.sort_by do |belt|
       [
-        "mu kup",
-        "9 kup",
-        "8 kup",
-        "7 kup",
-        "6 kup",
-        "5 kup",
-        "4 kup",
-        "3 kup",
-        "2 kup",
-        "1 kup",
-        "dan",
+        "Mu Kup",
+        "9. Kup",
+        "8. Kup",
+        "7. Kup",
+        "6. Kup",
+        "5. Kup",
+        "4. Kup",
+        "3. Kup",
+        "2. Kup",
+        "1. Kup",
+        "Dan",
       ].index(belt.degree)
     end
   end

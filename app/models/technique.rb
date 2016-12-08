@@ -7,5 +7,17 @@ class Technique < ApplicationRecord
   enum topic: {
     sugisul: 0,
     joksul: 1,
+    danjon_hohupbop: 2,
+    ki_doin: 3,
+    jahse: 4,
+    nakbop: 5,
+    su: 6,
+    yaksok_daeryon: 7,
+    jayu_daeryon: 8,
+    hyong: 9,
+    gigu_sul: 10,
+    kyokpa: 11,
+    tuksu_dong_jak: 12,
+    hwalyong_sul: 13,
   }
 end
