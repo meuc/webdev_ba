@@ -20,4 +20,9 @@ class Technique < ApplicationRecord
     tuksu_dong_jak: 12,
     hwalyong_sul: 13,
   }
+
+  def youtube_embed_url
+    youtube_id = youtube_video_url.match(/[?&]v=(?<url>[^&]*)/)[:url]
+    "https://www.youtube.com/embed/#{youtube_id}"
+  end
 end

@@ -23,6 +23,20 @@ module Admin
       end
     end
 
+    def edit
+      @technique = Technique.find(params[:id])
+    end
+
+    def update
+      @technique = Technique.find(params[:id])
+
+      if @technique.update(technique_params)
+        redirect_to admin_techniques_path
+      else
+        render :edit
+      end
+    end
+
     private
 
     def technique_params
@@ -31,6 +45,7 @@ module Admin
         :name,
         :topic,
         :description,
+        :youtube_video_url,
       )
     end
   end

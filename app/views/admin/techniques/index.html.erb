@@ -26,11 +26,11 @@
         <tbody>
           <% belt.techniques.order(:topic, :name).each do |technique| %>
             <tr>
-              <td><%= technique.name.titleize %></td>
+              <td><%= link_to technique.name.titleize, [technique.belt, technique] %></td>
               <td><%= technique.description.titleize %></td>
               <td><%= technique.topic.titleize %></td>
               <td>
-                <button class="btn btn-xs btn-info">Edit</button>
+                <%= link_to "Edit", edit_admin_technique_path(technique), class: "btn btn-xs btn-info" %>
               </td>
             </tr>
           <% end %>

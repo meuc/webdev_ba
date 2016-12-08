@@ -1,19 +1,30 @@
 <h1>
-	<%= @technique.name %>
+  <%= @technique.name %>
 </h1>
 
 <h2>
-	<%= @technique.topic %>
+  <%= @technique.topic %>
 </h2>
 <h2>
-	<%= @technique.belt.degree %>
+  <%= @technique.belt.degree %>
 </h2>
 
 <p>
-	<%= @technique.description %>
+  <%= @technique.description %>
 </p>
 
-<aside>In here videos an pics</aside>
+<aside>
+  <% if @technique.youtube_video_url.present? %>
+    <iframe
+      width="560"
+      height="315"
+      src="<%= @technique.youtube_embed_url %>"
+      frameborder="0"
+      allowfullscreen></iframe>
+  <% else %>
+    <%= image_tag "video_placeholder" %>
+  <% end %>
+</aside>
 
 
 
