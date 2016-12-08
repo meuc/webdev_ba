@@ -1,17 +1,21 @@
 <%= simple_form_for [:admin, @technique] do |f| %>
-<div class="form-group">
-	<%= f.input :name %>
-</div>
-<div class="form-group">
-	<%= f.input :description %>
-</div>
-<div class="form-group">
-	<%= f.association :belt, label_method: :color %>
-</div>
-<div class="form-group">
-	<%= f.input :topic, collection: Technique.topics %>
-</div>
-<div class="form-group">
-	 <%= f.button :submit %>
-	</div>
+  <div class="form-group">
+    <%= f.input :name, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-group">
+    <%= f.association :belt, label_method: :color %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :topic, collection: Technique.topics %>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit %>
+  </div>
 <% end %>
