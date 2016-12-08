@@ -20,9 +20,7 @@
             <ul class="technique-wrap" style="display: none">
               <% belt.techniques.where(topic: topic).each do |technique| %>
                 <li>
-                  <a href="#">
-                    <%= technique.name %>
-                  </a>
+                  <%= link_to technique.name, [technique.belt, technique] %>
                 </li>
               <% end %>
             </ul>
