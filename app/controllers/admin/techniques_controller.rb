@@ -2,6 +2,11 @@ module Admin
   class TechniquesController < AdminController
     def index
       @belts = Belt.all
+      @matching_techniques = if params[:query].present?
+                               Technique.search_for(params[:query]).map(&:id)
+                             else
+                               Technique.all.pluck(:id)
+                             end
     end
 
     def new

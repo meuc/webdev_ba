@@ -21,6 +21,27 @@ class Technique < ApplicationRecord
     hwalyong_sul: 13,
   }
 
+  def self.search_for(query)
+    like_query = "%#{query}%"
+
+    find_by_sql([<<-SQL, like_query, like_query, like_query])
+      WITH topics (topic_id, topic_name) AS (
+        VALUES
+          #{Technique.topics.map { |k,v| "(#{v}, '#{k.humanize}')" }.join(", ")}
+      )
+
+      SELECT *
+      FROM techniques
+
+      INNER JOIN topics
+         ON topics.topic_id = techniques.topic
+
+      WHERE techniques.name ILIKE ?
+         OR techniques.description ILIKE ?
+         OR topics.topic_name ILIKE ?
+    SQL
+  end
+
   def youtube_embed_url
     youtube_id = youtube_video_url.match(/[?&]v=(?<url>[^&]*)/)[:url]
     "https://www.youtube.com/embed/#{youtube_id}"

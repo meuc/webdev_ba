@@ -1,10 +1,16 @@
 <div>
   <%= link_to "Add new technique", new_admin_technique_path, class: "btn btn-default right" %>
+
+  <%= form_tag admin_techniques_path, method: :get do %>
+    <%= search_field_tag :query, params[:query], class: "right" %>
+    <%= button_tag "Search" %>
+  <% end %>
+
   <h1>Technique register</h1>
 </div>
 
 <% @belts.each do |belt| %>
-  <% next if belt.techniques.empty? %>
+  <% next if belt.techniques.where(id: @matching_techniques).empty? %>
 
   <div class="technique-list">
     <h2>
@@ -24,7 +30,7 @@
           </tr>
         </thead>
         <tbody>
-          <% belt.techniques.order(:topic, :name).each do |technique| %>
+          <% belt.techniques.where(id: @matching_techniques).order(:topic, :name).each do |technique| %>
             <tr>
               <td><%= link_to technique.name.titleize, [technique.belt, technique] %></td>
               <td><%= technique.description.titleize %></td>
