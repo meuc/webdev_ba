@@ -1,16 +1,16 @@
 <div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
+  <h1><%= t(".title") %></h1>
 
   <p><%= t(".description") %></p>
 
   <%= form_for :password, url: passwords_path do |form| %>
-    <div class="text-field">
+    <div class="text-field form-field">
       <%= form.label :email %>
-      <%= form.text_field :email, type: 'email' %>
+      <%= form.text_field :email, type: 'email',  class: "form-control"  %>
     </div>
 
     <div class="submit-field">
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-default" %>
     </div>
   <% end %>
 </div>

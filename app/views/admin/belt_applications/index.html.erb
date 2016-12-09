@@ -1,27 +1,36 @@
+<h1>Those people would like to upgrade their belts:</h1>
+
 <% if @belt_applications.present? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Belt applied for</th>
-        <th>Proof picture</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @belt_applications.each do |belt_application| %>
-        <tr>
-          <td><%= belt_application.user.email %></td>
-          <td><%= belt_application.user.next_belt.color %></td>
-          <td><%= link_to "Picture", belt_application.picture_proof.url %></td>
-          <td>
-            <%= button_to "Approve", approve_admin_belt_application_path(belt_application), method: :post %>
-            <%= button_to "Reject", admin_belt_application_path(belt_application), method: :delete %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+	<div class="table-responsive">
+  	<table class="table table-striped table-hover">
+  	  <thead>
+  	    <tr>
+  	      <th>Firstname</th>
+  	      <th>Lastname</th>
+  	      <th>Belt applied for</th>
+  	      <th>Proof picture</th>
+  	      <th>Actions</th>
+					<th></th>
+  	    </tr>
+  	  </thead>
+  	  <tbody>
+  	    <% @belt_applications.each do |belt_application| %>
+  	      <tr>
+  	        <td><%= belt_application.user.first_name %></td>
+  	        <td><%= belt_application.user.last_name %></td>
+  	        <td><%= belt_application.user.next_belt.color %></td>
+  	        <td><%= link_to "Show picture", belt_application.picture_proof.url, target: "_blank", class: "btn btn-default btn-xs" %></td>
+  	        <td>
+  	          <%= button_to "Approve", approve_admin_belt_application_path(belt_application), method: :post, class: "btn btn-xs btn-success" %>
+						</td>
+  	        <td>
+  	          <%= button_to "Reject", admin_belt_application_path(belt_application), method: :delete, class: "btn btn-xs btn-danger" %>
+  	        </td>
+  	      </tr>
+  	    <% end %>
+  	  </tbody>
+  	</table>
+	</div>
 <% else %>
   <p>There are no belt applications yet :(</p>
 <% end %>

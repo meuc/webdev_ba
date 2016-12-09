@@ -1,7 +1,20 @@
-<%= form.input :email %>
-<%= form.input :password, required: true %>
-<%= form.input :first_name %>
-<%= form.input :last_name %>
-<%= form.input :gender, collection: User.genders %>
+<div class="form-field">
+	<%= form.input :email, input_html: { class: "form-control" }%>
+</div>
+<div class="form-field">
+	<%= form.input :password, input_html: { class: "form-control" }, required: true %>
+</div>
+<div class="form-field">
+	<%= form.input :first_name, input_html: { class: "form-control" } %>
+</div>
+<div class="form-field">
+	<%= form.input :last_name, input_html: { class: "form-control" } %>
+</div>
+<div class="form-field">
+	<%= form.input :gender, input_html: { class: "form-control" }, collection: User.genders %>
+</div>
 <!-- <%= form.input :birthdate %> -->
-<%= form.input :birthdate, start_year: Date.today.year - 110, end_year: Date.today.year %>
+<div class="form-field">
+	<%= form.input :birthdate, input_html: { class: "form-control col-md-4" }, start_year: Date.today.year - 110, end_year:
+ Date.today.year %>
+</div>

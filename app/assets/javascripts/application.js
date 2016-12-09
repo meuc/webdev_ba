@@ -14,7 +14,7 @@ $(function() {
     $(this).parents(".belt-tile").find(".category-wrap").slideToggle();
   });
 
-  $('.category-wrap > li').click(function(){
+  $('.category span').click(function(){
     $(this).parents(".category-wrap").find(".technique-wrap").slideToggle();
   });
 	

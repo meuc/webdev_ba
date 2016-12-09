@@ -1,4 +1,8 @@
 <div class="belt-tile-wrap">
+
+<h1>Se alle dine techniker!</h1>
+
+<!-- TODO: Make only belt show that have assigned techniques -->
   <% @belts.each do |belt| %>
     <div class="belt-tile">
 
@@ -7,7 +11,7 @@
       </a>
 
       <% if current_user.next_belt == belt && current_user.belt_application.nil? %>
-        <%= link_to "Apply", new_belt_application_path, class: "right btn btn-sm btn-default" %>
+        <%= link_to "Anmod næste bælte", new_belt_application_path, class: "right apply-btn btn btn-sm btn-default" %>
       <% end %>
 
       <% Technique.topics.each do |topic, _| %>
@@ -15,7 +19,7 @@
 
         <ul class="category-wrap">
           <li class="category">
-            <%= topic.titleize %>
+            <span class="pointer"><%= topic.titleize %></span>
 
             <ul class="technique-wrap" style="display: none">
               <% belt.techniques.where(topic: topic).each do |technique| %>

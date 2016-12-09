@@ -4,22 +4,22 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :description %>
+    <%= f.input :description, input_html: { class: "form-control" } %>
   </div>
 
   <div class="form-group">
-    <%= f.input :youtube_video_url %>
+    <%= f.input :youtube_video_url, input_html: { class: "form-control" } %>
   </div>
 
   <div class="form-group">
-    <%= f.association :belt, label_method: :color %>
+    <%= f.association :belt, label_method: :color, input_html: { class: "form-control" } %>
   </div>
 
   <div class="form-group">
-    <%= f.input :topic, collection: Technique.topics.map { |topic_name, _| [topic_name.humanize, topic_name] } %>
+    <%= f.input :topic, collection: Technique.topics.map { |topic_name, _| [topic_name.humanize, topic_name] }, input_html: { class: "form-control" } %>
   </div>
 
   <div class="form-group">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-default" %>
   </div>
 <% end %>

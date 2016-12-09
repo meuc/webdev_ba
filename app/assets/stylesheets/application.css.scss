@@ -81,7 +81,7 @@ nav {
 }
 
 .belt-tile-wrap {
-	width: 100%;			
+	width: 100%;	
 	
 	.belt-tile {
 		width: 100%;
@@ -89,7 +89,7 @@ nav {
 //		display: block;
 //		overflow: hidden;
 		
-		> a {
+		> a:not(.apply-btn) {
 			width: 100%;
 			display: block;
 			padding: 1rem;
@@ -104,22 +104,34 @@ nav {
 			}
 			
 			&.disabled {
-				width: calc(100% - 80px);
+				width: calc(100% - 132px);
 				display: inline-block;
 			}
 		}
 		
 		> ul {
-//			background: $neutral;
 			padding: 0rem;
-			list-style: none;
-			
+			list-style: none;			
 			display: none;
 			
 			> li {
-				padding: 1rem;
-				background: lighten($contrast, 10%);
 				margin-top: 3px;
+				
+				span {
+					background: lighten($contrast, 10%);
+					width: 100%;
+					display: block;
+					padding: 1rem;
+				}
+				
+				a {
+					color: $contrast !important;
+					
+					&:hover {
+						color: darken($contrast, 10%) !important;
+						text-decoration: none !important;
+					}
+				}				
 			}
 		}
 		
@@ -138,7 +150,8 @@ nav {
 					color: $main;
 					font-size: 1.5rem;
 					&:hover {
-						color: darken($contrast, 10%);
+						color: darken($contrast, 10%) !important;
+						text-decoration: none !important;
 					}
 				}
 			}
@@ -146,8 +159,25 @@ nav {
 	}
 }
 
+.btn.fa {
+	padding: 8px 12px 10px;
+}
 
+.user_birthdate {
+	width: 100%;
+	overflow: hidden;
+	
+	label {
+		display: block;
+	}
+	select {
+		width: 12%;
+	}
+}
 
+.video-placeholder {
+	width: 560px;
+}	
 
 
 // GENERALS
@@ -207,4 +237,12 @@ h1 {
 .disabled {
    pointer-events: none;
    cursor: default;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.block {
+	display: block;
 }
