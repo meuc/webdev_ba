@@ -14,6 +14,7 @@ class BeltApplicationsController < ApplicationController
     @application.user = current_user
 
     if @application.save
+      BeltApplicationMailer.send_application_notification(current_user).deliver_now
       redirect_to root_path
     else
       render :new

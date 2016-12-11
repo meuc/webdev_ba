@@ -14,6 +14,10 @@ class User < ApplicationRecord
     female: 1,
   }
 
+  def name
+    [first_name, last_name].join(" ")
+  end
+
   def has_belt?(belt)
     belts.include? belt
   end
