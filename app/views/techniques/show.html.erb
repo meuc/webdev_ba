@@ -1,25 +1,25 @@
 <div class="col-md-6">
-	<h1>
-	  <%= @technique.name.titleize %>
-	</h1>
-	
-	<h3>Topic:</h3>
-	<p>
-	 <%= @technique.topic.titleize %>
-	</p>
-	
-	<h3>Kup:</h3>
-	<p>
-		<%= @technique.belt.degree %>
-	</p>
-	
-	<h3>Description:</h3>
-	<p>
-		<%= @technique.description %>
-	</p>
-	
-	
-	
+  <h1>
+    <%= @technique.name.titleize %> (<%= @technique.long_name.titleize %>)
+  </h1>
+
+  <h3>Topic:</h3>
+  <p>
+   <%= @technique.topic.titleize %>
+  </p>
+
+  <h3>Kup:</h3>
+  <p>
+    <%= @technique.belt.degree %>
+  </p>
+
+  <h3>Description:</h3>
+  <p>
+    <%= @technique.description %>
+  </p>
+
+
+
 </div>
 
 <aside class="col-md-6">
@@ -33,9 +33,9 @@
   <% else %>
     <%= image_tag "video_placeholder", class: "video-placeholder" %>
   <% end %>
-	
-	<%= link_to "Tilbage til overview", root_path, class: "right" %>
-	
+
+  <%= link_to "Tilbage til overview", root_path, class: "right" %>
+
 </aside>
 
 

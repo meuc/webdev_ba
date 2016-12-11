@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208191516) do
+ActiveRecord::Schema.define(version: 20161211145754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161208191516) do
     t.integer "belt_id",                       null: false
     t.integer "topic",             default: 0, null: false
     t.text    "youtube_video_url"
+    t.string  "long_name",                     null: false
     t.index ["belt_id"], name: "index_techniques_on_belt_id", using: :btree
   end
 

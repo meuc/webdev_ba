@@ -2,7 +2,14 @@ class Technique < ApplicationRecord
   belongs_to :belt
   has_many :notes
 
-  validates :belt, :name, :topic, :description, presence: true
+  validates(
+    :belt,
+    :name,
+    :topic,
+    :description,
+    :long_name,
+    presence: true,
+  )
 
   enum topic: {
     sugisul: 0,

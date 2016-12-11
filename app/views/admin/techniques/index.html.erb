@@ -33,6 +33,7 @@
         <thead>
           <tr>
             <th>Name</th>
+            <th>Long name</th>
             <th>Description</th>
             <th>Topic</th>
             <th></th>
@@ -42,6 +43,7 @@
           <% belt.techniques.where(id: @matching_techniques).order(:topic, :name).each do |technique| %>
             <tr>
               <td><%= link_to technique.name.titleize, [technique.belt, technique] %></td>
+              <td><%= technique.long_name.titleize %></td>
               <td><%= simple_format technique.description %></td>
               <td><%= technique.topic.titleize %></td>
               <td>
