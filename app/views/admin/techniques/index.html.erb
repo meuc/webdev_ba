@@ -42,7 +42,7 @@
           <% belt.techniques.where(id: @matching_techniques).order(:topic, :name).each do |technique| %>
             <tr>
               <td><%= link_to technique.name.titleize, [technique.belt, technique] %></td>
-              <td><%= technique.description.titleize %></td>
+              <td><%= simple_format technique.description %></td>
               <td><%= technique.topic.titleize %></td>
               <td>
                 <%= link_to "Edit", edit_admin_technique_path(technique), class: "btn btn-xs btn-info" %>
