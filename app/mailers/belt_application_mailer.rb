@@ -3,8 +3,7 @@ class BeltApplicationMailer < ApplicationMailer
     @user = user
 
     mail(
-      # to: "mar.rie.cra@gmail.com",
-      to: "david.pdrsn@gmail.com",
+      to: "mar.rie.cra@gmail.com",
       subject: "New belt application",
     )
   end
