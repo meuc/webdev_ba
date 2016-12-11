@@ -3,8 +3,8 @@ white.techniques.find_or_create_by!(name: "Ap chagi", long_name: "Apgumchi Ap Ch
 white.techniques.find_or_create_by!(name: "Dollyo chagi", long_name: "Baldung Dollyo Chagi", description: "Round house kick", topic: :joksul)
 
 yellow = Belt.find_or_create_by!(degree: "9. Kup", color: "Gul")
-yellow.techniques.find_or_create_by!(name: "Yop chagi", description: "Side kick", topic: :joksul)
-yellow.techniques.find_or_create_by!(name: "Yang sujang chigi", description: "Double palm strike", topic: :sugisul)
+yellow.techniques.find_or_create_by!(name: "Yop chagi", long_name: "Balnal Yop Chagi", description: "Side kick", topic: :joksul)
+yellow.techniques.find_or_create_by!(name: "Yang sujang chigi", long_name: "Yang sujang chigi", description: "Double palm strike", topic: :sugisul)
 
 [
   { degree: "8. Kup", color: "Orange" },
