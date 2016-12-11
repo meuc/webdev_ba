@@ -5,31 +5,50 @@
 
   <h3>Topic:</h3>
   <p>
-   <%= @technique.topic.titleize %>
+  <%= @technique.topic.titleize %>
   </p>
 
   <h3>Kup:</h3>
   <p>
-    <%= @technique.belt.degree %>
+  <%= @technique.belt.degree %>
   </p>
 
   <h3>Description:</h3>
   <p>
-    <%= @technique.description %>
+  <%= @technique.description %>
   </p>
 
+  <% if @technique.notes.where(user: current_user).present? %>
+    <ul>
+      <% @technique.notes.where(user: current_user).each do |note| %>
+        <li>
+          <%= note.text %>
+          <%= link_to "Delete note", [note.technique.belt, note.technique, note], method: :delete %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div>
+      No notes yet
+    </div>
+  <% end %>
 
+  <%= simple_form_for [@technique.belt, @technique, @technique.notes.new] do |f| %>
+    <h3>New note</h3>
+    <%= f.input :text %>
+    <%= f.submit %>
+  <% end %>
 
 </div>
 
 <aside class="col-md-6">
   <% if @technique.youtube_video_url.present? %>
     <iframe
-      width="560"
-      height="315"
-      src="<%= @technique.youtube_embed_url %>"
-      frameborder="0"
-      allowfullscreen></iframe>
+       width="560"
+       height="315"
+       src="<%= @technique.youtube_embed_url %>"
+       frameborder="0"
+       allowfullscreen></iframe>
   <% else %>
     <%= image_tag "video_placeholder", class: "video-placeholder" %>
   <% end %>

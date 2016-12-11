@@ -11,7 +11,7 @@
       </a>
 
       <% if current_user.next_belt == belt && current_user.belt_application.nil? %>
-        <%= link_to "Anmod næste bælte", new_belt_application_path, class: "right apply-btn btn btn-sm btn-default" %>
+        <%= link_to "Anmod om næste bælte", new_belt_application_path, class: "right apply-btn btn btn-sm btn-default" %>
       <% end %>
 
       <% Technique.topics.each do |topic, _| %>

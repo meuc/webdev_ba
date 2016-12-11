@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   resources :belts, only: [] do
-    resources :techniques, only: [:index, :show]
+    resources :techniques, only: [:index, :show] do
+      resources :notes, only: [:create, :destroy]
+    end
   end
 
   namespace :admin do
