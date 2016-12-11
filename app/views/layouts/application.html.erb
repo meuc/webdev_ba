@@ -44,8 +44,8 @@
       <% end %>
       <div class="right">
         <% if signed_in? %>
-          <p>Annyeong Haseyo, <a href="#"><%= current_user.first_name %></a>
-            <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'btn btn-xs' %>
+          <p>Annyeong Haseyo, <%= link_to current_user.first_name, me_path %>
+          <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'btn btn-xs' %>
           </p>
         <% else %>
           <%= link_to 'Sign in', sign_in_path %> |
