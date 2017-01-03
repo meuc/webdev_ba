@@ -1,4 +1,4 @@
-<h1>Members</h1>
+<h1>Medlemmer</h1>
 
 <% if @users.present? %>
 <div class="table-responsive">
@@ -6,11 +6,11 @@
     <thead>
       <tr>
         <th>Email</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Birthdate</th>
-        <th>Gender</th>
-        <th>Belt</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Fødselsdato</th>
+        <th>Køn</th>
+        <th>Bælte</th>
         <th></th>
       </tr>
     </thead>
@@ -24,21 +24,21 @@
           <td><%= user.birthdate.to_s(:long) %></td>
           <td>
 						<% if user.gender == 1%>
-          		Female
+          		Kvinde
 						<% else %>
-            	Male
+            	Mand
           	<% end %>
 					</td>
 					<td>
           	<% if user.belts.present? %>
             	<%= user.current_belt.color %>
           	<% else %>
-            	No belts
+            	Ingen bælte
           	<% end %>
 					</td>
 
           <td>
-            <%= button_to "Change belt", admin_user_give_user_next_belt_path(user), method: :patch, class: "btn btn-xs btn-info" %>
+            <%= button_to "Rediger bælte", admin_user_give_user_next_belt_path(user), method: :patch, class: "btn btn-xs btn-info" %>
           </td>
         </tr>
       <% end %>
@@ -47,5 +47,5 @@
 </div>
 
 <% else %>
-  <p>There are no users yet :(</p>
+  <p>Der er ingen brugere endnu :(</p>
 <% end %>

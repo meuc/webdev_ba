@@ -1,14 +1,14 @@
-<h1>Those people would like to upgrade their belts:</h1>
+<h1>De mennesker vil gerne opgradere deres bælter:</h1>
 
 <% if @belt_applications.present? %>
 	<div class="table-responsive">
   	<table class="table table-striped table-hover">
   	  <thead>
   	    <tr>
-  	      <th>Firstname</th>
-  	      <th>Lastname</th>
-  	      <th>Belt applied for</th>
-  	      <th>Proof picture</th>
+  	      <th>Fornavn</th>
+  	      <th>Efternavn</th>
+  	      <th>Bælt ansøges om</th>
+  	      <th>Bevis billede</th>
   	      <th>Actions</th>
 					<th></th>
   	    </tr>
@@ -19,12 +19,12 @@
   	        <td><%= belt_application.user.first_name %></td>
   	        <td><%= belt_application.user.last_name %></td>
   	        <td><%= belt_application.user.next_belt.color %></td>
-  	        <td><%= link_to "Show picture", belt_application.picture_proof.url, target: "_blank", class: "btn btn-default btn-xs" %></td>
+  	        <td><%= link_to "Vis", belt_application.picture_proof.url, target: "_blank", class: "btn btn-default btn-xs" %></td>
   	        <td>
-  	          <%= button_to "Approve", approve_admin_belt_application_path(belt_application), method: :post, class: "btn btn-xs btn-success" %>
+  	          <%= button_to "Godkende", approve_admin_belt_application_path(belt_application), method: :post, class: "btn btn-xs btn-success" %>
 						</td>
   	        <td>
-  	          <%= button_to "Reject", admin_belt_application_path(belt_application), method: :delete, class: "btn btn-xs btn-danger" %>
+  	          <%= button_to "Afvise", admin_belt_application_path(belt_application), method: :delete, class: "btn btn-xs btn-danger" %>
   	        </td>
   	      </tr>
   	    <% end %>
@@ -32,5 +32,5 @@
   	</table>
 	</div>
 <% else %>
-  <p>There are no belt applications yet :(</p>
+  <p>Der er ingen bælte ansøgningerne endnu :(</p>
 <% end %>

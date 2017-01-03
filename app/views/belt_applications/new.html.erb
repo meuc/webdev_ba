@@ -1,10 +1,10 @@
 <%= simple_form_for @application do |f| %>
   <h1>
-    Send application to become <%= current_user.next_belt.color %> bælte
+    Send ansøgning til at blive <%= current_user.next_belt.color %> bælte.
 	</h1>
   <div class="form-group">
 		<%= f.input :picture_proof, as: :file, input_html: { class: "form-control" } %>
-		<span>Upload a picture of your Shinson Hapkido passport or your diploma.</span>
+		<span>Upload et billede af dit Shinson Hapkido pas eller diplom.</span>
 	</div>
 
   <%= f.button :submit, :class => "btn btn-default" %>
