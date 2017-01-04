@@ -24,6 +24,11 @@ body {
 	margin: 0;
 	color: $main;
 	overflow: hidden;
+	
+	@media screen and (max-width:991px) {
+		overflow: scroll;
+		padding-bottom: 8.5rem;
+	}
 }
 
 .page-wrap {
@@ -50,33 +55,29 @@ nav {
 	left: 0;
 	right: 0;
 	padding: 1rem;
+	padding-bottom: 0;
 	
 	img {
-		height: 4rem;
+		height: 50px;
 	}
 
-	div {
-		overflow: hidden;
-		padding-top: 1rem;
-		
-		p {
-			float: left;
-			margin-right: 1rem;
-		}
-		form {
-			float: right;
-		}
-	}
-	
 	a {
 		color: lighten($contrast, 10%);
 	}
-	
+
 	.admin-nav {
-		width: 250px;
-		position: absolute;
-		bottom: 2rem;
-		left: calc(50% - 125px);
+		text-align: center;
+		font-size: 1.75rem;
+		padding-top: 1rem;
+	}
+	.user-nav {
+		text-align: right;
+	}
+	
+	> div {		
+		@media screen and (max-width:991px) {
+			text-align: center !important;
+		}
 	}
 }
 
@@ -104,7 +105,7 @@ nav {
 			}
 			
 			&.disabled {
-				width: calc(100% - 132px);
+				width: calc(100% - 160px);
 				display: inline-block;
 			}
 		}
@@ -175,9 +176,25 @@ nav {
 	}
 }
 
-.video-placeholder {
-	width: 560px;
-}	
+aside {
+	margin-top: 1rem;
+	
+	iframe, .video-placeholder {
+		width: 100%;
+		max-width: 560px;
+//
+//		@media screen and (max-width:991px) {
+//			max-height: 315px;
+//		}
+	}
+	
+	iframe {
+		height: 315px;
+	}
+
+}
+
+
 
 
 // GENERALS

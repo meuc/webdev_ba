@@ -1,1 +1,39 @@
-<%= current_user.email %>
+<h1>Profil</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Fødselsdato</th>
+        <th>Køn</th>
+        <th>Bælte</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= current_user.email %></td>
+
+          <td><%= current_user.first_name %></td>
+          <td><%= current_user.last_name %></td>
+          <td><%= current_user.birthdate.to_s(:long) %></td>
+          <td>
+						<% if current_user.gender == 1%>
+          		Kvinde
+						<% else %>
+            	Mand
+          	<% end %>
+					</td>
+					<td>
+          	<% if current_user.belts.present? %>
+            	<%= current_user.current_belt.color %>
+          	<% else %>
+            	Ingen bælte
+          	<% end %>
+					</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
