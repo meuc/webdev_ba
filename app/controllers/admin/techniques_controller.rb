@@ -48,6 +48,7 @@ module Admin
       params.require(:technique).permit(
         :belt_id,
         :name,
+        :long_name,
         :topic,
         :description,
         :youtube_video_url,

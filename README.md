@@ -1,24 +1,19 @@
-# README
+# Installation Guide
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prerequisites:
+--------------
 
-Things you may want to cover:
+- Make sure PostgreSQL is installed. 
+- Check if Ruby is installed at least at version 2.3.0.
 
-* Ruby version
+Set up:
+------
 
-* System dependencies
+Run the following commands in the terminal from within the project folder:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ gem install bundler
+$ bundle install
+$ bin/rake db:create
+$ bin/rake db:migrate
+$ bin/rake db:seed
+$ bin/rails s

@@ -34,25 +34,29 @@
 
 </div>
 
-    <nav>
+    <nav class="">
+			<div class="col-md-4 col-sm-6 col-xs-12">
       <%= image_tag("shinsonhapkido_logo.png") %>
       <span>Shinson Hapkido - Pensum</span>
+			</div>
 
       <% if current_user.try(:admin?) %>
-        <div class="admin-nav">
+        <div class="admin-nav col-md-4 col-sm-6 col-xs-12">
           <%= link_to "Brugere", admin_users_path %> |
           <%= link_to "Teknikker", admin_techniques_path %> |
           <%= link_to "Ansøgningerne", admin_belt_applications_path %>
-        </div>
+				</div>
       <% end %>
-      <div class="right">
+			<div class="user-nav col-md-4 col-sm-12 col-xs-12">
         <% if signed_in? %>
           <p>Annyeong Haseyo, <%= link_to current_user.first_name, me_path %>
-          <%= button_to 'Log ud', sign_out_path, method: :delete, class: 'btn btn-xs' %>
+						<%= button_to 'Log ud', sign_out_path, method: :delete, class: 'btn btn-xs' %>
           </p>
         <% else %>
+				<div class="sign-log-links">
           <%= link_to 'Log ind', sign_in_path %> |
           <%= link_to 'Sign up', sign_up_path %>
+				</div>
         <% end %>
       </div>
     </nav>

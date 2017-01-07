@@ -24,7 +24,7 @@
 
   <h4>Beskrivelse:</h4>
   <p>
-  <%= @technique.description %>
+  <%= simple_format @technique.description %>
   </p>
 
   <% if @technique.notes.where(user: current_user).present? %>
@@ -49,8 +49,6 @@
 <aside class="col-md-6">
   <% if @technique.youtube_video_url.present? %>
     <iframe
-       width="560"
-       height="315"
        src="<%= @technique.youtube_embed_url %>"
        frameborder="0"
        allowfullscreen></iframe>

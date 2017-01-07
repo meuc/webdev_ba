@@ -42,3 +42,5 @@ class TechniqueTest < ActiveSupport::TestCase
     )
   end
 end
+
+
