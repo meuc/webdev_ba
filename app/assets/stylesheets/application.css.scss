@@ -56,7 +56,10 @@ nav {
 	right: 0;
 	padding: 1rem;
 	padding-bottom: 0;
+<<<<<<< HEAD
 	min-height: 72px;
+=======
+>>>>>>> e80f77b14beeb61823afe417a07167433d24e695
 	
 	img {
 		height: 50px;
@@ -64,6 +67,7 @@ nav {
 
 	a {
 		color: lighten($contrast, 10%);
+<<<<<<< HEAD
 	}
 
 	.admin-nav {
@@ -84,6 +88,23 @@ nav {
 	.sign-log-links {
 		font-size: 2rem;
 		padding-top: 1rem;
+=======
+	}
+
+	.admin-nav {
+		text-align: center;
+		font-size: 1.75rem;
+		padding-top: 1rem;
+	}
+	.user-nav {
+		text-align: right;
+	}
+	
+	> div {		
+		@media screen and (max-width:991px) {
+			text-align: center !important;
+		}
+>>>>>>> e80f77b14beeb61823afe417a07167433d24e695
 	}
 	
 }
