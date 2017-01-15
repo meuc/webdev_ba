@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     if note.save
       flash.notice = "Note created"
     else
-      flash.alert = "Something wrong with note"
+      flash.alert = "Something wrong your with note"
     end
 
     redirect_to belt_technique_path(belt, technique)

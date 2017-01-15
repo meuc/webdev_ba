@@ -17,6 +17,8 @@ module Admin
       @technique = Technique.new(
         belt: Belt.find(technique_params.fetch(:belt_id)),
         name: technique_params.fetch(:name),
+        long_name: technique_params.fetch(:long_name),
+        youtube_video_url: technique_params.fetch(:youtube_video_url),
         description: technique_params.fetch(:description),
         topic: technique_params.fetch(:topic).to_i,
       )
